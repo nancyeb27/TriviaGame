@@ -8,41 +8,88 @@
 
     <title>Princess Bride Triva Game</title>
 
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--Link CSS  -->
+    <!--Link CSS & js  -->
     <link rel="stylesheet" type="text/css" href="assets\css\style.css">
 
 
 </head>
 
 <body>
+  
+    <div id="container">
+        <header>
+            <h1>Pricness Bride Trivia Game</h1>
+            <p>Test you knowledge of<strong> 'The Princess Bride Movie'</strong></p>
 
+            <button id="startgame">Start Game</button>
+                      
+        
+        </header>
+        <section>
+          
 
+            <form name="quizform" onsubmit="return submitAnswers()">
 
+                <h3>1. What is </h3>
+                <input type="radio" nam name="q1" value="a" id="q1a">a. &lt;script&gt;<br>
+                <input type="radio" nam name="q1" value="b" id="q1b">b. &lt;script&gt;<br>
+                <input type="radio" nam name="q1" value="c" id="q1c">c. &lt;script&gt;<br>
+                <input type="radio" nam name="q1" value="d" id="q1d">d. &lt;script&gt;<br>
 
+                <h3>2. What is </h3>
+                <input type="radio" nam name="q2" value="a" id="q2a">a. &lt;script&gt;<br>
+                <input type="radio" nam name="q2" value="b" id="q2b">b. &lt;script&gt;<br>
+                <input type="radio" nam name="q2" value="c" id="q2c">c. &lt;script&gt;<br>
+                <input type="radio" nam name="q2" value="d" id="q2d">d. &lt;script&gt;<br>
 
+                <h3>3. What is </h3>
+                <input type="radio" nam name="q3" value="a" id="q3a">a. &lt;script&gt;<br>
+                <input type="radio" nam name="q3" value="b" id="q3b">b. &lt;script&gt;<br>
+                <input type="radio" nam name="q3" value="c" id="q3c">c. &lt;script&gt;<br>
+                <input type="radio" nam name="q3" value="d" id="q3d">d. &lt;script&gt;<br>
 
+                <h3>4. What is </h3>
+                <input type="radio" nam name="q4" value="a" id="q4a">a. &lt;script&gt;<br>
+                <input type="radio" nam name="q4" value="b" id="q4b">b. &lt;script&gt;<br>
+                <input type="radio" nam name="q4" value="c" id="q4c">c. &lt;script&gt;<br>
+                <input type="radio" nam name="q4" value="d" id="q4d">d. &lt;script&gt;<br>
 
+                <h3>5. What is </h3>
+                <input type="radio" nam name="q5" value="a" id="q5a">a. &lt;script&gt;<br>
+                <input type="radio" nam name="q5" value="b" id="q5b">b. &lt;script&gt;<br>
+                <input type="radio" nam name="q5" value="c" id="q5c">c. &lt;script&gt;<br>
+                <input type="radio" nam name="q5" value="d" id="q5d">d. &lt;script&gt;<br>
 
+                <h3>6. What is </h3>
+                <input type="radio" nam name="q6" value="a" id="q6a">a. &lt;script&gt;<br>
+                <input type="radio" nam name="q6" value="b" id="q6b">b. &lt;script&gt;<br>
+                <input type="radio" nam name="q6" value="c" id="q6c">c. &lt;script&gt;<br>
+                <input type="radio" nam name="q6" value="d" id="q6d">d. &lt;script&gt;<br>
+                <br><br>
+                <input type="submit" value="Submit: Answers">
+            </form>
+            <div id="timeLeft"> Time Remaining</div> 
+            <div id="right">Correct</div>
+            <div id="wrong">Incorrect</div>
+            <div id="blank">Unanswered</div>
 
+        </section>
+        <footer>neb 2018</footer>
 
-
-
-
-
+    </div>
 
 
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/javascript/game.js"></script>
-    
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+
 </body>
 
 </html>
