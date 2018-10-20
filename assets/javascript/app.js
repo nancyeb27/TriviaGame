@@ -1,89 +1,197 @@
 // Question and answer Array
-var questions = [
+$(document).ready (function () {
+
+
+    var questions = [
     {
         question: 'What sports team is on the grandsons shirt?',
-        answers: [
-            { answer: "A. Broncos", value: false },
-            { answer: "B. Braves", value: false },
-            { answer: "C. Gaints", value: false },
-            { answer: "D. Bears", value: true },
-        ]
+        answers: ["Broncos", "Braves","Gaints","Bears"],
+        values: [false, false, false, true] 
     },
     {
 
         question: 'What sports team is on the grandsons shirt?',
-        answers: [
-            { answer: "A. Broncos", value: false },
-            { answer: "B. Braves", value: false },
-            { answer: "C. Gaints", value: false },
-            { answer: "D. Bears", value: true },
-        ]
+        answers: ["Broncos", "Braves","Gaints","Bears"],
+        values: [false, false, false, true] 
     },
     {
         question: 'What sports team is on the grandsons shirt?',
-        answers: [
-            { answer: "A. Broncos", value: false },
-            { answer: "B. Braves", value: false },
-            { answer: "C. Gaints", value: false },
-            { answer: "D. Bears", value: true },
-        ]
+        answers: ["Broncos", "Braves","Gaints","Bears"],
+        values: [false, false, false, true] 
     },
     {
         question: 'What sports team is on the grandsons shirt?',
-        answers: [
-            { answer: "A. Broncos", value: false },
-            { answer: "B. Braves", value: false },
-            { answer: "C. Gaints", value: false },
-            { answer: "D. Bears", value: true },
-        ]
+        answers: ["Broncos", "Braves","Gaints","Bears"],
+        values: [false, false, false, true] 
     },
     {
         question: 'What sports team is on the grandsons shirt?',
-        answers: [
-            { answer: "A. Broncos", value: false },
-            { answer: "B. Braves", value: false },
-            { answer: "C. Gaints", value: false },
-            { answer: "D. Bears", value: true },
-        ]
+        answers: ["Broncos", "Braves","Gaints","Bears"],
+        values: [false, false, false, true] 
     }
 ];
 
 // Global variables
-var game;
-var counter = 0;
-var clock;
-var timer;
-var correctCounter = 0;
-var incorrectCounter = 0;
-var unansweredCounter = 0;
+var currentQuestion = 0;
+var correct = 0;
+var wrong = 0;
+var none = 0;
 
+   
+    $("#start").on("click", function () {
+        
+        $("#start").fadeToggle("slow", displayQ)
+    })
+    function displayQ(){
+        $(".message-content").remove();
+    $("#start").remove();
 
-$(document).ready(function () {
-    $(".answers").css("visibility", "hidden");
-    $("body").on("click", ".start-btn", function (event) {
-        event.preventDefault();
-        startGame();
-        $(".answers").css('visibiity', "visible");
-    });
-    $("body").on("click", ".answer", function (event) {
-        // console.log($(this));
-        chosenAnswer = $(this).text();
-        var answerCounter = questions[counter].answers;
-        var answer = $(".answer");
-        for (var i = 0; i < answerCounter.length; i++) {
-            if (chosenAnswer === answerCounter[i].answer && answerCounter[i].value === true) {
-                clearInterval(clock);
-                var right = $(this).attr('class', "right-answer answer");
-                rightAnswer();
+        
+       var questionArea = $("<div>");
+       questionArea.attr("id", "question-Area")
+       var timer = $("<h2>")
+       var question = $("<h2>")
+
+       questionArea.appendTo("#content")
+       timer.appendTo(questionArea)
+       question.appendTo(questionArea)
+
+       var time = 30;
+       timer.html("<h2>" + time + "  seconds remaining</h2>")
+
+       var countDown = setInterval( function() {
+           time--;
+           timer.html("<h2>" + time + " seconds remaining</h2>")
+
+           if (time === 0) {
+               clearInterval(countDown)
+               questionArea.fadeToggle("slow", timedOut)
+               none ++;
             }
-            else if (chosenAnswer === answerCounter[i].answer && answerCounter[i].value === flase) {
-                clearInterval(clock);
-                $(this).attr('class', 'wrong-answer answer');
-                wrongAnswer();
-            }
+       }, 1000);
+
+       question.html(questions[currentQuestion].question)
+
+            for (var i = 0; i < questions [currentQuestion].answers.length; i++) {
+                var answers = $("<button>")
+                answers.html(questions[currentQuestion].answers[i])
+                answers.addClass("answer-button")
+                answers.attr("value", questions[currentQuestion].values[i])
+                answers.appendTo(questionArea)
+            };
+
+            $("#a0").animate({"left":  " +=600px"})
+
+            $(".answer-button").on ("click", function(){
+                console.log($(this).attr("value"));
+
+            if ($(this).attr("value") === "true"){
+                questionArea.fadeToggle("slow", displayCorrect)
+                clearInterval(countDown);
+                correct ++;
+            };
+      
+             if ($(this).attr("value") === "flase"){
+                questionArea.fadeToggle("slow", displayCorrect)
+                clearInterval(countDown);
+                wrong ++;
+            };
+        });
+    };
+
+        function displayCorrect() {
+            var cycle = setTimeout(displayQ, 5000)
+            var messageArea = $("<div>");
+            messageArea.addClass("message-content")
+
+            var winMessage = $("<h2>");
+            var detail = $("<h2>");
+
+            messageArea.appendTo($('#content'));
+            winMessage.appendTo($(messageArea));
+            winMessage.text("Correct!");
+            
+        if (currentQuestion === (questions.length -1)) {
+            clearTimeout (cycle);
+            var gameEnd = setTimeout ( gameOver, 5000)
         }
-    });
-});
+        currentQuestion ++;
+        };
+            
+        function displayWrong() {
+            var cycle = setTimeout(displayQ, 5000)
+            var messageArea = $("<div>");
+            messageArea.addClass("message-content")
+
+            var lossMessage = $("<h2>");
+            
+            messageArea.appendTo($('#content'));
+            lossMessage.appendTo($(messageArea));
+            lossMessage.html("Wrong! The right answer was: " + questions[currentQuestion].answers[questions[currentQuestion].values.indexOf(true)]);
+           
+
+        if (currentQuestion === (questions.length -1)) {
+            clearTimeout (cycle);
+            var gameEnd = setTimeout ( gameOver, 5000)
+        }
+        currentQuestion ++;
+        };
+
+        function timedOut(){
+            cycle = setTimeout(displayQ, 5000)
+            messageArea = $("<div>");
+            messageArea.addClass("message-content")
+            var lossMessage = $("<h2>");
+
+            messageArea.appendTo($("#content"));
+            lossMessage.appendTo(messageArea)
+            lossMessage.html("Wrong! The right answer was: " + questions[currentQuestion].answers[questions[currentQuestion].values.indexOf(true)]);
+      
+            if (currentQuestion === (questions.length -1)){
+                clearInterval (cycle);
+                var gameEnd = setTimeout( gameOver, 5000)
+            }
+            currentQuestion ++;
+
+        };
+
+        function gameOver() {
+            $(".message-content").remove();
+            var totalCorrect = $("<h3>")
+            var totalIncorrect = $("<h3>")
+            var totalNone = $("<h3>")
+            var restart = $("<button>")
+            totalCorrect.appendTo($("#content"))
+            totalCorrect.html("You got " + correct + " correct!")
+            totalIncorrect.appendTo("#content")
+            totalIncorrect.html("You got " + wrong + " wrong.")
+            totalNone.appendTo("#content")
+
+            if (none === 1) {
+                totalNone.html ("You didn't answer  " + none + " question.")
+            }
+                if (none > 1 || none === 0) {
+                    totalNone.html ("You didn't answer  " + none + " questions.")
+                } 
+                restart.addClass("restart")
+                restart.text("Restart")
+                restart.appendTo($("#content"))
+
+                $(".restart").on ("click" , function() {
+                    totalCorrect.remove();
+                        totalIncorrect.remove();
+                        totalNone.remove();
+                        restart.remove();
+                        currentQuestion = 0;
+                        correct = 0;
+                        wrong =0;
+                        none = 0;
+                        displayQ();
+                })
+            }
+        })
+                    
+               
     
 
 
