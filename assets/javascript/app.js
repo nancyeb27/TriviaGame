@@ -4,29 +4,29 @@ $(document).ready (function () {
 
     var questions = [
     {
-        question: 'What sports team is on the grandsons shirt?',
-        answers: ["Broncos", "Braves","Gaints","Bears"],
-        values: [false, false, false, true] 
+        question: 'What is the name of the first man Holly is determined to marry--the ninth richest man in America under fifty?',
+        answers: ["Rusty Trawler", "Braves","Gaints","Bears"],
+        values: [true, false, false, false] 
     },
     {
 
-        question: 'What sports team is on the grandsons shirt?',
-        answers: ["Broncos", "Braves","Gaints","Bears"],
+        question: "I claimed to be Paul's 'decorator'. Who played me?",
+        answers: ["Broncos", "Patricia Neal ","Gaints","Bears"],
+        values: [false, true, false, false] 
+    },
+    {
+        question: 'When Doc is trying to convince Lulamae/Holly to come back to Texas with him, when does he say that Fred is due to get out of the Army?',
+        answers: ["Broncos", "Braves","Gaints","February "],
         values: [false, false, false, true] 
     },
     {
-        question: 'What sports team is on the grandsons shirt?',
-        answers: ["Broncos", "Braves","Gaints","Bears"],
+        question: "How much do Holly's men give her for the powder room?",
+        answers: ["Broncos", "Braves","Gaints","50 dollars"],
         values: [false, false, false, true] 
     },
     {
-        question: 'What sports team is on the grandsons shirt?',
-        answers: ["Broncos", "Braves","Gaints","Bears"],
-        values: [false, false, false, true] 
-    },
-    {
-        question: 'What sports team is on the grandsons shirt?',
-        answers: ["Broncos", "Braves","Gaints","Bears"],
+        question: "Where is Tiffany's located?",
+        answers: ["Broncos", "Braves","Gaints","New York"],
         values: [false, false, false, true] 
     }
 ];
