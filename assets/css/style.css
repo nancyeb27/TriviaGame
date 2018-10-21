@@ -1,85 +1,91 @@
-body{
-    background: #81446b;
+* body{
+    background: #1a0111;
     color: #fff;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 14px;
-}
-
-#container {
-    width: 60%;
-    background:#199fdb;
-    margin: 20px auto;
-    overflow: auto;
-    padding: 25px; 
-}
-
-header {
-    text-align: center;
-    background-color: #81446b;
-}
-
-header h1{
-
-    margin: 0;
-    padding: 0;
-}
-
-header p {
-    padding:0;
-    margin-top: 5px;
-    color:rgb(219, 203, 203);
-    font-size: 20px;
-
-}
-
- #startgame  {
-    background-color: #eb2ea2;
-    color: #fff;
-    border: 0;
-    height: 50px;
-    width: 175px;
-    font-size: 20px;
-
-
- }
-
- #timeLeft , #right ,#wrong, #blank {
-    background-color: #eb2ea2;
-    color: #fff;
-    text-align: center;
-    border: 0;
-    height: 50px;
-    width: 175px;
-    font-size: 20px; 
- }
-
-input[type= "submit"] {
-    background-color: #eb2ea2;
-    color: #fff;
-    border: 0;
-    height: 50px;
-    width: 175px;
-    font-size: 20px;
-
-}
-
-#results h3 {
-    background-color: #81446b;
-    padding: 10px;
-    margin:10px 0;
-}
-    
- #results span {
-    color:#000;
-    font-weight bold;
-    
-
+    font-size: 25px;
 } 
 
-footer {
-    background-color:  #81446b; 
-    color: rgb(219, 203, 203);
-    padding: 10px;
-    margin: 10px;
+
+h1 {
     text-align: center;
+    font-family: cursive;
+    font-size: 75px;
+    margin: 20px;
+    padding: 10px;
+}
+
+
+p {
+    text-align: center;
+    padding:0;
+    margin-top: 0px;
+    font-size: 30px;
+
+}
+
+h2  { 
+    text-align: center;
+    margin: 10px;
+    padding:10px;
+    
+}
+
+h3  {
+    text-align: center;
+    margin: 10px;
+    padding:10px;
+    color: #eb2ea2;
+
+}
+
+button {
+   display: block;
+    margin: 30px auto;
+    background-color: #eb2ea2;
+    color: white;
+    font-size: 20px  !important;
+    
+
+}
+
+button:hover {
+    transform: scale(1.1);
+    border: 3px #eb2ea2 solid;
+    background: white;
+    
+    color: #eb2ea2;
+}
+
+
+ #start  {
+    vertical-align: middle;
+    background-color: #eb2ea2;
+    color: #fff;
+    border: 3px rgb(245, 244, 244) solid;
+    height: 75px;
+    width: 150px;
+    font-size: 40px !important;
+    
+
+ }
+    #question-area {
+        padding-left:10px;
+        padding-right: 10px;
+          
+    }
+
+    .message-content {
+        padding-left:10px;
+        padding-right: 10px;
+        margin-top: 50px;
+
+    }
+ 
+footer {
+    
+    padding: 50px 10px 10px 10px;
+    margin: 10px;
+     text-align: center; 
+    
+    
 }
